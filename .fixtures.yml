@@ -1,0 +1,9 @@
+fixtures:
+  repositories:
+    stdlib:
+      repo: "https://github.com/Adaptavist/puppetlabs-stdlib"
+    rvm:
+      repo: "https://github.com/Adaptavist/puppet-rvm"
+  symlinks:
+    fpm: "#{source_dir}"
+
