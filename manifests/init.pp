@@ -7,14 +7,18 @@ class fpm(
     }
     validate_array($ruby_versions)
 
+    $ruby_dev = $::osfamily ? {
+        RedHat => 'ruby-devel',
+        default => 'ruby-dev'
+    }
+
     package {
         'gcc':
             ensure => 'installed'
     } ->
     package {
-        'ruby-dev':
-            ensure => 'installed',
-            alias  => 'ruby-devel'
+        $ruby_dev:
+            ensure => 'installed'
     } ->
     fpm::install_gem{ $ruby_versions: }
 }

@@ -30,4 +30,18 @@ describe 'fpm', :type => 'class' do
       )
     end
   end
+
+  context "Should install fpm on RedHat" do
+
+    let(:facts) { { :osfamily => 'RedHat' } }
+    let(:params) { { :ruby_versions => ['2.0.0'] } }
+
+    it do
+      should contain_package('gcc')
+      should contain_package('ruby-devel')
+      should contain_rvm_gem('ruby-2.0.0/fpm').with(
+          'ruby_version' => 'ruby-2.0.0'
+      )
+    end
+  end
 end
