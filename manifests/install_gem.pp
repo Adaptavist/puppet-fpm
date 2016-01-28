@@ -1,4 +1,4 @@
-define fpm::install_gem($ruby_ver = $title){
+define fpm::install_gem($ruby_ver = $title, $ensure = 'latest'){
     rvm_gem {
         "ruby-${ruby_ver}/fpm":
             ensure       => 'latest',
