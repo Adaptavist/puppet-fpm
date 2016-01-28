@@ -1,6 +1,7 @@
 # Installs fpm gem
 class fpm(
-    $ruby_versions = undef
+    $ruby_versions = undef,
+    $ensure = 'latest',
 ) {
     if !defined('rvm::system'){
         include rvm::system
@@ -14,11 +15,13 @@ class fpm(
 
     package {
         'gcc':
-            ensure => 'installed'
+            ensure => $ensure
     } ->
     package {
         $ruby_dev:
-            ensure => 'installed'
+            ensure => $ensure
     } ->
-    fpm::install_gem{ $ruby_versions: }
+    fpm::install_gem{ $ruby_versions:
+        ensure => $ensure
+    }
 }
