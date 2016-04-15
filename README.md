@@ -7,6 +7,7 @@
 
 ```
 class { 'fpm':
-  ruby_versions => ['2.0.0', '1.9.3']
+  ruby_versions => ['2.0.0', '1.9.3'],
+  version => '1.4.0'
 }
 ```
