@@ -18,7 +18,7 @@ describe 'fpm', :type => 'class' do
 
   context "Should install fpm version" do
 
-    let(:params) { { :ruby_versions => ['2.0.0'], :ensure => '1.4.0' } }
+    let(:params) { { :ruby_versions => ['2.0.0'], :version => '1.4.0' } }
 
     it do
       should contain_package('gcc')
