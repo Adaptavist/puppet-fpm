@@ -10,7 +10,22 @@ describe 'fpm', :type => 'class' do
       should contain_package('gcc')
       should contain_package('ruby-dev')
       should contain_rvm_gem('ruby-2.0.0/fpm').with(
-        'ruby_version' => 'ruby-2.0.0'
+        'ruby_version' => 'ruby-2.0.0',
+        'ensure' => 'latest'
+      )
+    end
+  end
+
+  context "Should install fpm version" do
+
+    let(:params) { { :ruby_versions => ['2.0.0'], :ensure => '1.4.0' } }
+
+    it do
+      should contain_package('gcc')
+      should contain_package('ruby-dev')
+      should contain_rvm_gem('ruby-2.0.0/fpm').with(
+          'ruby_version' => 'ruby-2.0.0',
+          'ensure' => '1.4.0'
       )
     end
   end
