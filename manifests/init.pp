@@ -9,7 +9,7 @@ class fpm(
     validate_array($ruby_versions)
 
     $ruby_dev = $::osfamily ? {
-        RedHat => 'ruby-devel',
+        'RedHat' => 'ruby-devel',
         default => 'ruby-dev'
     }
 

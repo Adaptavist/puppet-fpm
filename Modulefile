@@ -1,5 +1,5 @@
 name 'adaptavist-fpm'
-version '0.1.11'
+version '1.0.0'
 source 'https://github.com/Adaptavist/puppet-fpm.git'
 author 'adaptavist'
 summary 'fpm Module' 
